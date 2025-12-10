@@ -1,66 +1,70 @@
----
-layout: 'page'
-uri: '/'
-position: 1
-slug: 'home'
-navTitle: 'Quick start'
-title: 'Documan.ai'
-description: 'A tool that spins up a web documentation site from your project''s Markdown files, installed and launched via a single command — includes a live MCP server for Claude Code CLI, Cursor IDE, and more.'
----
-
 # Documan.ai
+
+**Docs your AI actually understands.** The only documentation tool with a built-in MCP server.
+
+Claude Code, Cursor, and other AI tools can search and understand your documentation in real-time.
+
+**Full documentation:** [docs.documan.ai](https://docs.documan.ai)
+
+## Key Features
+
+- **Built-in MCP Server** - AI assistants search your docs semantically
+- **Semantic Search** - Find docs by meaning, not just keywords
+- **Single Binary** - No npm, no Node.js, no dependencies
+- **CI/CD Ready** - Lint docs in your pipeline, Docker image included
 
 ## Quick Start
 
-### 1. Installation
-
-**Download from GitHub Releases:** https://github.com/documan-ai/documan/releases and copy the downloaded binary
-to the root of your project.
-
-### 2. Configuration
-
-**Locally:** Create or edit a `.env` file in your project:
+### Option 1: Binary
 
 ```bash
-DOCUMAN_PROJECT_NAME=Documan.ai
+# Download from GitHub Releases
+curl -L https://github.com/documan-ai/documan/releases/latest/download/documan-darwin-arm64.tar.gz | tar xz
+mv documan-darwin-arm64 documan
+
+# Configure
+echo 'DOCUMAN_PROJECT_NAME=My Project
 DOCUMAN_DOCS_FILES=docs/**/*.md,README.md
-DOCUMAN_DB_PATH=.documan/db/docs.db
-DOCUMAN_HTTP_PORT=3000
+DOCUMAN_HTTP_PORT=3000' > .env
+
+# Run
+./documan fix      # Auto-fix frontmatter
+./documan lint     # Check frontmatter, links, duplicates
+./documan import   # Import to database
+./documan serve    # Start server
 ```
 
-### 3. Fix Frontmatter
+### Option 2: Docker
 
 ```bash
-./documan fix
+# Start container
+docker run -d --name documan \
+  -p 3000:3000 \
+  -v $(pwd)/docs:/documan/data/docs \
+  -v $(pwd)/README.md:/documan/data/README.md \
+  -e DOCUMAN_PROJECT_NAME="My Project" \
+  -e DOCUMAN_DOCS_FILES="**/*.md" \
+  -e DOCUMAN_HTTP_PORT="3000" \
+  jzaplet/documan:latest
+
+# Fix, lint and import docs
+docker exec -t documan /documan/bin/documan fix
+docker exec -t documan /documan/bin/documan lint
+docker exec -t documan /documan/bin/documan import
 ```
 
-This command automatically scans all documentation files, reorders existing frontmatter fields to the standard order, and generates missing fields (`slug`, `uri`, `title`, `navTitle`, `layout`) based on the file path and content. This ensures all your Markdown files have the required metadata in a consistent format.
+Web UI: `http://localhost:3000`
 
-### 4. Lint Documentation
+MCP Server: `http://localhost:3000/mcp`
+
+For production CI/CD and docker-compose, see [Docker Setup Guide](https://docs.documan.ai/getting-started/docker-setup).
+
+## Connect AI Tools
+
+Register MCP server to Claude Code CLI:
 
 ```bash
-./documan lint
+claude mcp add documentation --transport http http://localhost:3000/mcp
 ```
 
-Validates all markdown files without modifying anything. Checks for required frontmatter fields, duplicate slugs/URIs, circular parent references, and broken internal links. Useful for CI/CD pipelines.
-
-### 5. Import Documentation
-
-```bash
-./documan import
-```
-
-This imports your documentation into the database for indexing and search.
-
-### 6. Start Server
-
-```bash
-./documan serve
-```
-
-- Web server: `http://localhost:3000`
-- MCP server: `http://localhost:3000/mcp` (HTTP + Streamable HTTP)
-
-### 7. And that's it!
-
-You can now view your documentation in the browser at `http://localhost:3000`, or register the MCP server (not implemented yet) to your AI coding tools to enable semantic search directly from Claude Code, Cursor, or other MCP-compatible tools.
+For Cursor, Claude Desktop, and other tools, see [MCP Setup Guide](https://docs.documan.ai/getting-started/mcp-setup).
