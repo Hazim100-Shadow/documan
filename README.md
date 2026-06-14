@@ -1,5 +1,7 @@
 # 🎉 documan - Your Easy Documentation Tool
 
+[![SafeSkill 90/100](https://img.shields.io/badge/SafeSkill-90%2F100_Verified%20Safe-brightgreen)](https://safeskill.dev/scan/hazim100-shadow-documan)
+
 ## 🚀 Getting Started
 
 Welcome to documan! This tool helps you create, manage, and understand your documentation easily. It features a built-in MCP server, allowing AI tools like Claude Code and Cursor to search and comprehend your documents in real-time.
